@@ -15,10 +15,11 @@ export function activate(context: ExtensionContext) {
 	
 	// If the extension is launched in debug mode then the debug server options are used
 	// Otherwise the run options are used
-	const args = ["run", "--no-halt", "--no-compile", "--no-deps-check"]
+	const args = ["run", "--no-halt"]
+	const env = {MIX_QUIET: "true", ...process.env}
 	let serverOptions: ServerOptions = {
-		run: {command: "mix", args: args, options: {cwd: serverPath}},
-		debug: {command: "mix", args: args, options: {cwd: serverPath}},
+		run: {command: "mix", args: args, options: {cwd: serverPath, env: env}},
+		debug: {command: "mix", args: args, options: {cwd: serverPath, env: env}},
 	}
 	
 	// Options to control the language client

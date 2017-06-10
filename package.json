@@ -173,8 +173,8 @@
         ]
     },
     "scripts": {
-        "vscode:prepublish": "./build.sh",
-        "compile": "./build.sh",
+        "vscode:prepublish": "./prepublish.sh",
+        "compile": "tsc -p ./",
         "update-vscode": "node ./node_modules/vscode/bin/install",
         "postinstall": "node ./node_modules/vscode/bin/install"
     },
